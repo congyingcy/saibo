@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="friends-grid">
+    <block wx:for="{{friends}}" wx:key="id">
+      <view class="friend-item">{{item.name}}</view>
+    </block>
+  </view>
+</view> 

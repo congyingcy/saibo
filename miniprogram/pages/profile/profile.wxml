@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="profile-info">
+    <text>出生日期：{{birthDate}}</text>
+    <text>墓志铭：{{epitaph}}</text>
+  </view>
+</view> 

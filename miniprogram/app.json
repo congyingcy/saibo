@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/friends/friends",
+    "pages/tomb/tomb",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "生命计时器",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  }
+} 

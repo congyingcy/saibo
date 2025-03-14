@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="life-time">
+    <text>你已经活了：</text>
+    <text>{{years}} 年</text>
+    <text>{{months}} 月</text>
+    <text>{{seconds}} 秒</text>
+  </view>
+  <view class="buttons">
+    <button bindtap="navigateToFriends">朋友</button>
+    <button bindtap="navigateToTomb">换墓</button>
+    <button bindtap="navigateToProfile">我的</button>
+  </view>
+</view> 

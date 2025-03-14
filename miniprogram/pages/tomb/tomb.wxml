@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="image-grid">
+    <block wx:for="{{images}}" wx:key="index">
+      <image src="{{item}}" mode="aspectFill" class="tomb-image"></image>
+    </block>
+  </view>
+  <button bindtap="chooseImage">上传图片</button>
+</view> 
