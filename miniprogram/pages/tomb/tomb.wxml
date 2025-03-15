@@ -1,7 +1,10 @@
 <view class="container">
   <view class="image-grid">
     <block wx:for="{{images}}" wx:key="index">
-      <image src="{{item}}" mode="aspectFill" class="tomb-image"></image>
+      <view class="image-container">
+        <image src="{{item}}" mode="aspectFill" class="tomb-image"></image>
+        <view class="delete-button" bindtap="deleteImage" data-index="{{index}}">×</view>
+      </view>
     </block>
   </view>
   <button bindtap="chooseImage">上传图片</button>
