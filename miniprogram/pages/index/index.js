@@ -104,5 +104,11 @@ Page({
   },
   navigateToProfile() {
     wx.navigateTo({ url: '/pages/profile/profile' });
+  },
+  logout() {
+    wx.removeStorageSync('userInfo'); // 清除用户信息
+    wx.redirectTo({
+      url: '/pages/login/login'
+    });
   }
 }); 

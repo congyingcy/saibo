@@ -19,6 +19,24 @@
   object-fit: cover;
 }
 
+.logout-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(105, 204, 140, 0.658); /* 半透明红色背景 */
+  color: white;
+  padding: 4px 16px;
+  border-radius: 20px; /* 圆角 */
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 阴影 */
+  transition: background-color 0.3s ease; /* 过渡效果 */
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 77, 77, 1); /* 鼠标悬停时加深颜色 */
+}
+
 .time-info {
   display: flex;
   flex-direction: column;

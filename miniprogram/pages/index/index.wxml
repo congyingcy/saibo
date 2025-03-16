@@ -1,5 +1,8 @@
 <view class="container">
   <image src="{{backgroundImage}}" mode="aspectFill" class="background-image"></image>
+  <view class="logout-button" bindtap="logout">
+    <text>退出</text>
+  </view>
   <view class="time-info">
     <view class="current-time">
       <text>当前时间：{{currentTime}}</text>

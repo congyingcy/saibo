@@ -1,6 +1,11 @@
 Page({
   data: {
-    builtInImages: [], // 内置图片列表
+    builtInImages: [
+      '/pages/images/hm/hm1.png',
+      '/pages/images/hm/hm2.png',
+      '/pages/images/hm/hm3.png',
+      '/pages/images/hm/hm4.png'
+    ],
     uploadedImages: [], // 用户上传的图片列表
     maxImages: 9, // 最多允许上传9张图片
     hmImageCount: 8 // hm 文件夹中的图片数量
@@ -16,38 +21,6 @@ Page({
     }
     this.setData({
       builtInImages: hmImages
-    });
-  },
-  chooseImage() {
-    const { uploadedImages, maxImages } = this.data;
-    const remainingSlots = maxImages - uploadedImages.length;
-
-    if (remainingSlots <= 0) {
-      wx.showToast({
-        title: '最多只能上传9张图片',
-        icon: 'none'
-      });
-      return;
-    }
-
-    wx.chooseImage({
-      count: remainingSlots,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        const newImages = res.tempFilePaths;
-        this.setData({
-          uploadedImages: [...uploadedImages, ...newImages]
-        });
-      }
-    });
-  },
-  deleteImage(event) {
-    const index = event.currentTarget.dataset.index;
-    const { uploadedImages } = this.data;
-    uploadedImages.splice(index, 1);
-    this.setData({
-      uploadedImages
     });
   },
   onImageTap(e) {
