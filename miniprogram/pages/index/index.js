@@ -12,17 +12,29 @@ Page({
     totalMinutes: 0, // 总分钟数
   },
   onLoad() {
-    const user = wx.getStorageSync('currentUser');
+    const userInfo = wx.getStorageSync('userInfo');
+    if (!userInfo) {
+      // 如果用户未登录，跳转到登录页面
+      wx.redirectTo({
+        url: '/pages/login/login'
+      });
+    } else {
+      // 如果用户已登录，加载用户数据
+      this.setData({
+        userInfo
+      });
+    }
+
     const backgroundImage = wx.getStorageSync('backgroundImage') || '/pages/images/bg-content.png';
     this.setData({ backgroundImage });
 
-    if (user) {
+    if (userInfo) {
       // 如果有用户信息，使用用户输入的值
-      const birthDate = this.parseBirthDate(user.birthDate);
+      const birthDate = this.parseBirthDate(userInfo.birthDate);
       this.setData({
         birthDate: this.formatDate(birthDate),
-        username: user.username,
-        epitaph: user.epitaph
+        username: userInfo.username,
+        epitaph: userInfo.epitaph
       });
       this.setIntervalUpdate(birthDate);
     } else {

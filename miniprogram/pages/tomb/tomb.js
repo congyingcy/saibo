@@ -1,18 +1,21 @@
 Page({
   data: {
-    builtInImages: [
-      '/pages/images/hm/hm1.png',
-      '/pages/images/hm/hm2.png',
-      '/pages/images/hm/hm3.png',
-      '/pages/images/hm/hm4.png'
-    ],
-    uploadedImages: [],
-    maxImages: 9 // 最多允许上传9张图片
+    builtInImages: [], // 内置图片列表
+    uploadedImages: [], // 用户上传的图片列表
+    maxImages: 9, // 最多允许上传9张图片
+    hmImageCount: 8 // hm 文件夹中的图片数量
   },
   onLoad() {
-    // 初始化页面时加载内置图片
+    // 动态加载 hm 文件夹中的所有图片
+    this.loadBuiltInImages();
+  },
+  loadBuiltInImages() {
+    const hmImages = [];
+    for (let i = 1; i <= this.data.hmImageCount; i++) {
+      hmImages.push(`/pages/images/hm/hm${i}.png`);
+    }
     this.setData({
-      images: this.data.builtInImages
+      builtInImages: hmImages
     });
   },
   chooseImage() {

@@ -16,15 +16,15 @@ Page({
   login() {
     const { username, birthDate, epitaph } = this.data;
 
-    // 直接保存用户信息
-    const user = {
+    // 假设用户登录成功
+    const userInfo = {
       username,
       birthDate,
       epitaph
     };
-
-    // 保存当前用户信息
-    wx.setStorageSync('currentUser', user);
-    wx.switchTab({ url: '/pages/index/index' });
+    wx.setStorageSync('userInfo', userInfo); // 保存用户信息
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
   }
 }); 
