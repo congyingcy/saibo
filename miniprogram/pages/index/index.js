@@ -1,29 +1,40 @@
 Page({
   data: {
     currentTime: '', // 当前时间
-    birthDate: '', // 出生年月日
-    username: '', // 用户登录名
+    birthDate: '1990-01-01', // 默认出生日期
+    username: '用户', // 默认用户名
+    epitaph: '你好，我要买张复活卷！', // 默认墓志铭
+    backgroundImage: '/pages/images/bg-content.png', // 默认背景图片
     totalYears: 0, // 总年数
     totalMonths: 0, // 总月数
     totalDays: 0, // 总天数
     totalHours: 0, // 总小时数
     totalMinutes: 0, // 总分钟数
-    epitaph: '我想买张复活劵' // 墓志铭
   },
   onLoad() {
     const user = wx.getStorageSync('currentUser');
-    if (!user) {
-      wx.redirectTo({ url: '/pages/login/login' });
-      return;
-    }
+    const backgroundImage = wx.getStorageSync('backgroundImage') || '/pages/images/bg-content.png';
+    this.setData({ backgroundImage });
 
-    // 将 yyyymmdd 格式的出生日期转换为 Date 对象
-    const birthDate = this.parseBirthDate(user.birthDate);
-    this.setData({
-      birthDate: this.formatDate(birthDate), // 格式化出生日期
-      username: user.username // 获取用户登录名
-    });
-    this.setIntervalUpdate(birthDate);
+    if (user) {
+      // 如果有用户信息，使用用户输入的值
+      const birthDate = this.parseBirthDate(user.birthDate);
+      this.setData({
+        birthDate: this.formatDate(birthDate),
+        username: user.username,
+        epitaph: user.epitaph
+      });
+      this.setIntervalUpdate(birthDate);
+    } else {
+      // 如果没有用户信息，使用默认值
+      const birthDate = this.parseBirthDate('19900101'); // 默认出生日期
+      this.setData({
+        birthDate: this.formatDate(birthDate),
+        username: '用户',
+        epitaph: '你好，我要买张复活卷！'
+      });
+      this.setIntervalUpdate(birthDate);
+    }
   },
   setIntervalUpdate(birthDate) {
     setInterval(() => {

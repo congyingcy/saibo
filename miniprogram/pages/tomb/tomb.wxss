@@ -22,14 +22,25 @@
 
 .delete-button {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: red;
+  top: -20px;
+  right: 0px;
+  background-color: rgba(30, 255, 0, 0.39);
   color: white;
   border: none;
-  padding: 2px 5px;
-  font-size: 12px;
-  border-radius: 3px;
+  width: 5px;
+  height: 5px;
+  /* border-radius: 50%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 0, 0, 1);
 }
 
 .upload-button {

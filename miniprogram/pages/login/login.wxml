@@ -2,8 +2,8 @@
   <image src="/pages/images/bg-login.png" mode="aspectFill" class="background-image"></image>
   <view class="form">
     <input placeholder="请输入用户名" bindinput="inputUsername" />
-    <input placeholder="请输入密码" password bindinput="inputPassword" />
     <input placeholder="出生日期 (格式参考: 19980101)" bindinput="inputBirthDate" />
+    <input placeholder="墓志铭" bindinput="inputEpitaph" />
     <button bindtap="login">登录</button>
   </view>
 </view> 

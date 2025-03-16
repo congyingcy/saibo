@@ -2,13 +2,15 @@
   <view class="image-container">
     <!-- 显示内置图片 -->
     <block wx:for="{{builtInImages}}" wx:key="index">
-      <image src="{{item}}" mode="aspectFill" class="image" />
+      <view class="image-wrapper">
+        <image src="{{item}}" mode="aspectFill" class="image" bindtap="onImageTap" data-url="{{item}}" />
+      </view>
     </block>
     <!-- 显示用户上传的图片 -->
     <block wx:for="{{uploadedImages}}" wx:key="index">
       <view class="image-wrapper">
-        <image src="{{item}}" mode="aspectFill" class="image" />
-        <button class="delete-button" bindtap="deleteImage" data-index="{{index}}">删除</button>
+        <image src="{{item}}" mode="aspectFill" class="image" bindtap="onImageTap" data-url="{{item}}" />
+        <button class="delete-button" bindtap="deleteImage" data-index="{{index}}">×</button>
       </view>
     </block>
     <!-- 上传按钮 -->

@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tomb/tomb"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tomb/tomb",
+        "text": "换墓"
+      }
+    ]
+  },
+  // 其他配置
+} 

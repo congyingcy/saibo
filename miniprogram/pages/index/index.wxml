@@ -1,15 +1,15 @@
 <view class="container">
-  <image src="/pages/images/bg-content.png" mode="aspectFill" class="background-image"></image>
+  <image src="{{backgroundImage}}" mode="aspectFill" class="background-image"></image>
   <view class="time-info">
     <view class="current-time">
       <text>当前时间：{{currentTime}}</text>
     </view>
     <view class="birth-date">
-      <text> 出生日期：{{birthDate}}</text>
+      <text>诞生：{{birthDate}}</text>
     </view>
     <view class="epitaph">
-    <text>墓志铭：{{epitaph}}</text>
-  </view>
+      <text>墓志铭：{{epitaph}}</text>
+    </view>
   </view>
   <view class="user-info">
     <text>{{username}}，你已经活了：</text>
@@ -17,8 +17,8 @@
   <view class="life-time">
     <text>{{totalYears}} 年</text>
     <text>{{totalMonths}} 月</text>
-    <text>{{totalDays}} 日</text>
-    <text>{{totalHours}} 时</text>
-    <text>{{totalMinutes}} 分</text>
+    <text>{{totalDays}} 天</text>
+    <text>{{totalHours}} 小时</text>
+    <text>{{totalMinutes}} 分钟</text>
   </view>
 </view> 

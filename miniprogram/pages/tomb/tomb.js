@@ -46,5 +46,41 @@ Page({
     this.setData({
       uploadedImages
     });
+  },
+  onImageTap(e) {
+    const imageUrl = e.currentTarget.dataset.url;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否更换首页背景图片？',
+      success: (res) => {
+        if (res.confirm) {
+          // 更换首页背景图片
+          const pages = getCurrentPages();
+          const indexPage = pages.find(page => page.route === 'pages/index/index');
+          if (indexPage) {
+            indexPage.setData({
+              backgroundImage: imageUrl
+            });
+            wx.setStorageSync('backgroundImage', imageUrl);
+            wx.showToast({ title: '更换成功', icon: 'success' });
+          } else {
+            // 如果首页未找到，切换到首页
+            wx.switchTab({
+              url: '/pages/index/index',
+              success: () => {
+                const pages = getCurrentPages();
+                const indexPage = pages[pages.length - 1];
+                indexPage.setData({
+                  backgroundImage: imageUrl
+                });
+                wx.setStorageSync('backgroundImage', imageUrl);
+                wx.showToast({ title: '更换成功', icon: 'success' });
+              }
+            });
+          }
+        }
+      }
+    });
   }
 }); 
