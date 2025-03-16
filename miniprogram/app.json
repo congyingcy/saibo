@@ -1,13 +1,29 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
-    "pages/friends/friends",
-    "pages/tomb/tomb",
-    "pages/profile/profile"
+    "pages/tomb/tomb"
   ],
   "window": {
     "navigationBarTitleText": "生命计时器",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black"
-  }
-} 
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tomb/tomb",
+        "text": "换墓"
+      }
+    ],
+    "color": "#999999",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

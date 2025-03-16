@@ -1,5 +1,5 @@
 {
-  "appid": "touristappid",
+  "appid": "wx61c0fd017a59c183",
   "compileType": "miniprogram",
   "libVersion": "2.17.0",
   "packOptions": {
@@ -31,7 +31,8 @@
       "outputPath": ""
     },
     "disableUseStrict": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "minifyWXML": true
   },
   "condition": {},
   "editorSetting": {

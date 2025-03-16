@@ -1,7 +1,11 @@
 .container {
   position: relative;
   padding: 20px;
-  min-height: 100vh;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -15,30 +19,50 @@
   object-fit: cover;
 }
 
+.time-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.current-time {
+  text-align: center;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  margin-left: 20px;
+}
+
+.birth-date {
+  text-align: center;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-left: -50px;
+  margin-bottom: 12px;
+}
+
+.epitaph {
+  text-align: center;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  text-align: center;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
 .life-time {
-  margin-bottom: 40px;
   text-align: center;
 }
 
 .life-time text {
   display: block;
-  font-size: 20px;
-  color: #333;
+  font-size: 18px;
+  color: #FFFFFF;
   margin: 10px 0;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.buttons button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
 } 

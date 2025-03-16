@@ -1,40 +1,50 @@
 Page({
   data: {
-    images: [
+    builtInImages: [
       '/pages/images/hm/hm1.png',
       '/pages/images/hm/hm2.png',
       '/pages/images/hm/hm3.png',
-      '/pages/images/hm/hm4.png',
-      '/pages/images/hm/hm5.png'
+      '/pages/images/hm/hm4.png'
     ],
-    maxImages: 9 // 最大图片数量
+    uploadedImages: [],
+    maxImages: 9 // 最多允许上传9张图片
+  },
+  onLoad() {
+    // 初始化页面时加载内置图片
+    this.setData({
+      images: this.data.builtInImages
+    });
   },
   chooseImage() {
-    const { images, maxImages } = this.data;
-    if (images.length >= maxImages) {
+    const { uploadedImages, maxImages } = this.data;
+    const remainingSlots = maxImages - uploadedImages.length;
+
+    if (remainingSlots <= 0) {
       wx.showToast({
-        title: `最多只能上传 ${maxImages} 张图片`,
+        title: '最多只能上传9张图片',
         icon: 'none'
       });
       return;
     }
 
     wx.chooseImage({
-      count: maxImages - images.length, // 计算剩余可上传的图片数量
+      count: remainingSlots,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
       success: (res) => {
-        const tempFilePaths = res.tempFilePaths; // 获取用户选择的图片路径
+        const newImages = res.tempFilePaths;
         this.setData({
-          images: [...images, ...tempFilePaths] // 将新图片添加到数组中
+          uploadedImages: [...uploadedImages, ...newImages]
         });
       }
     });
   },
-  deleteImage(e) {
-    const index = e.currentTarget.dataset.index; // 获取要删除的图片索引
-    const images = this.data.images;
-    images.splice(index, 1); // 从数组中移除该图片
+  deleteImage(event) {
+    const index = event.currentTarget.dataset.index;
+    const { uploadedImages } = this.data;
+    uploadedImages.splice(index, 1);
     this.setData({
-      images: images // 更新页面数据
+      uploadedImages
     });
   }
 }); 

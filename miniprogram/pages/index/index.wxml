@@ -1,14 +1,24 @@
 <view class="container">
-  <image src="/pages/images/bg-content.png" mode="widthFix" class="background-image"></image>
-  <view class="life-time">
-    <text>你已经活了：</text>
-    <text>{{years}} 年</text>
-    <text>{{months}} 月</text>
-    <text>{{seconds}} 秒</text>
+  <image src="/pages/images/bg-content.png" mode="aspectFill" class="background-image"></image>
+  <view class="time-info">
+    <view class="current-time">
+      <text>当前时间：{{currentTime}}</text>
+    </view>
+    <view class="birth-date">
+      <text> 出生日期：{{birthDate}}</text>
+    </view>
+    <view class="epitaph">
+    <text>墓志铭：{{epitaph}}</text>
   </view>
-  <view class="buttons">
-    <button bindtap="navigateToFriends">朋友</button>
-    <button bindtap="navigateToTomb">换墓</button>
-    <button bindtap="navigateToProfile">我的</button>
+  </view>
+  <view class="user-info">
+    <text>{{username}}，你已经活了：</text>
+  </view>
+  <view class="life-time">
+    <text>{{totalYears}} 年</text>
+    <text>{{totalMonths}} 月</text>
+    <text>{{totalDays}} 日</text>
+    <text>{{totalHours}} 时</text>
+    <text>{{totalMinutes}} 分</text>
   </view>
 </view> 
